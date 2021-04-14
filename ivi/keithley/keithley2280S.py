@@ -59,7 +59,8 @@ TriggerDirection = set(['rise', 'fall'])
 
 class keithley2280S(scpi.dcpwr.Base, scpi.dcpwr.SoftwareTrigger,
                     dcpwr.Measurement,
-                    extra.dcpwr.OCP):
+                    extra.dcpwr.OCP,
+                    scpi.common.Reset):
     "Keithley (Tektronix) 2280S series precision measurement DC supply driver"
     
     def __init__(self, *args, **kwargs):
