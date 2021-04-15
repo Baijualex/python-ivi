@@ -219,7 +219,12 @@ class keithley2280S(scpi.dcpwr.Base, scpi.dcpwr.SoftwareTrigger,
         # reset
         if reset:
             self.utility_reset()
-
+        
+    def _utility_reset(self):
+        # Reset and wait for completion
+        self._ask("*RST; *OPC?")
+        self._clear()
+        
     def _utility_disable(self):
         pass
 
